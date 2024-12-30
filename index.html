@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanmukhi's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f1f1f;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin: 20px 0;
+    width: calc(100% - 40px);
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li {
+    margin: 0;
+}
+
+.navbar ul li a {
+    color: #E0E0E0;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.navbar ul li a i {
+    margin-right: 8px;
+}
+
+.navbar ul li a:hover {
+    color: #B0B0B0;
+    background-color: #333;
+}
+
+.sidebar {
+    list-style-type: none;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 10px;
+}
+
+.sidebar li {
+    margin: 15px 0;
+}
+
+.sidebar li a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: #1f1f1f;
+    border-radius: 50%;
+    color: #E0E0E0;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.sidebar li a:hover {
+    transform: scale(1.1);
+    background-color: #333;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar li a span {
+    display: none;
+    position: absolute;
+    left: 70px;
+    background-color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: bold;
+    color: #E0E0E0;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar li a:hover span {
+    display: inline-block;
+    opacity: 1;
+    transform: translateX(10px);
+}
+
+main {
+    padding: 0 20px;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    flex-grow: 1;
+    margin-top: 20px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+    color: #E0E0E0;
+    margin-bottom: 40px;
+}
+
+section h1, section h2 {
+    margin-bottom: 10px;
+    color: #E0E0E0;
+}
+
+section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #B0B0B0;
+}
+
+.home-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 20px;
+    animation: slideIn 1s ease-out;
+    height: 100vh;
+}
+
+.home-content img {
+    border-radius: 10px;
+    margin-left: 20px;
+    width: 300px;
+    height: auto;
+}
+
+.home-text {
+    max-width: 600px;
+}
+
+.home-text h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.home-text p {
+    font-size: 18px;
+}
+
+.education-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.education-item {
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 600px;
+    width: 100%;
+}
+
+.education-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.education-item img {
+    border-radius: 10px;
+    margin-right: 20px;
+    width: 80px;
+    height: 80px;
+}
+
+.education-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.education-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+.certifications-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.certification-card {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    color: #333;
+    position: relative; /* For the hover effect */
+}
+
+.certification-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.certification-card img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.certification-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.certification-card a {
+    color: #333;
+    text-decoration: none;
+}
+
+.certification-card a:hover {
+    text-decoration: underline;
+}
+
+.certification-card .hover-text {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.certification-card:hover .hover-text {
+    display: flex;
+    opacity: 1;
+}
+
+.full-screen-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    padding: 40px;
+    color: #E0E0E0;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: left;
+    animation: slideIn 1s ease-out;
+}
+
+.contact-card {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(250, 247, 247, 0.9);
+    color: #E0E0E0;
+    flex: 1 1 calc(50% - 40px); 
+    min-width: 300px;
+    max-width: 500px; 
+}
+
+.contact-card h3 {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.contact-card p,
+.contact-card a {
+    font-size: 16px;
+    color: #B0B0B0;
+    text-decoration: none;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+.contact-card i {
+    margin-right: 8px;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.education-item, .certification-card, .contact-content {
+    animation: slideIn 1s ease-out;
+}
+
+footer {
+    background-color: #1f1f1f;
+    color: #E0E0E0;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+.skill-category {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    width: calc(60% - 20px); /* Ensure two categories fit side by side */
+    box-shadow: 0 4px 8px rgba(250, 247, 247, 0.9);
+}
+
+.skill-category:hover {
+    background-color: #3a3a3a;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.skill-category h3::after {
+    content: "▼";
+    font-size: 18px;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.skill-set {
+    display: none;
+    margin-top: 10px;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+}
+
+.skill-set.active {
+    display: block;
+    max-height: 500px; /* Adjust based on content length */
+}
+
+.skill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.skill p {
+    margin: 0;
+    flex: 1;
+}
+
+.skill-bar {
+    background-color: #4caf50;
+    height: 20px;
+    border-radius: 5px;
+    flex: 3;
+    margin-left: 10px;
+    transition: width 0.3s ease;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+section {
+    animation: slideIn 1s ease-out;
+}
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 30px rgba(203, 35, 164, 0.8), 0 0 50px rgba(229, 230, 231, 0.6), 0 0 70px rgba(205, 142, 198, 0.9);
+    }
+    25% {
+        box-shadow: 0 0 40px rgba(203, 35, 164, 0.8), 0 0 60px rgba(229, 230, 231, 0.6), 0 0 80px rgba(204, 47, 186, 0.9);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(203, 35, 164, 0.8), 0 0 50px rgba(229, 230, 231, 0.6), 0 0 70px rgba(204, 47, 186, 0.9);
+    }
+    75% {
+        box-shadow: 0 0 40px rgba(203, 35, 164, 0.8), 0 0 60px rgba(229, 230, 231, 0.6), 0 0 80px rgba(204, 47, 186, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(203, 35, 164, 0.8), 0 0 50px rgba(229, 230, 231, 0.6), 0 0 70px rgba(204, 47, 186, 0.9);
+    }
+}
+
+.glowing-image {
+    border-radius: 10px;
+    margin-left: 20px;
+    width: 300px;
+    height: auto;
+    animation: glow 1s infinite ease-in-out;
+}
+
+
+    </style>
+</head>
+<body>
+   
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i>About</a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+            <li><a href="#projects"><i class="fas fa-tasks"></i> Projects</a></li>
+            <li><a href="#internships"><i class="fas fa-briefcase"></i>Internships</a></li>
+            <li><a href="#certifications"><i class="fas fa-award"></i> Certifications</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <ul class="sidebar">
+    <li>
+        <a href="https://www.linkedin.com/in/shanmukhipoluri/" target="_blank" title="LinkedIn" class="glowing-linkedin">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+        </a>
+    </li>
+    <li>
+        <a href="https://github.com/ShanmukhiPoluri" target="_blank" title="GitHub" class="glowing-github">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.instagram.com/shanmukhi_poluri_/" target="_blank" title="Instagram" class="glowing-instagram">
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+        </a>
+    </li>
+</ul>
+
+
+    <main>
+        <section id="home">
+            <div class="home-content">
+                <div class="home-text">
+                    <h1>Hello, <br> Welcome to My Portfolio!</h1>
+                    <p>Here you can explore all my achievements, interests, and projects. Dive in to learn more about my journey and get in touch with me. I hope you enjoy your visit!</p>
+                </div>
+                <img src="Shannu.jpg" alt="Shanmukhi's Picture" class="glowing-image">
+            </div>
+        </section>
+        
+        <section id="about">
+            <h2>About</h2>
+            <p>Here is my about section!</p>
+        </section>
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-content">
+                <div class="education-item">
+                    <img src="kl_logo.png" alt="XYZ University">
+                    <div>
+                        <h3>Bachelor of Technology in Computer Science</h3>
+                        <p>XYZ University, 2018 - 2022</p>
+                        <p>GPA: 9.5/10</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <img src="narayana_logo.png" alt="ABC College">
+                    <div>
+                        <h3>Higher Secondary Education</h3>
+                        <p>ABC College, 2016 - 2018</p>
+                        <p>Percentage: 95%</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <img src="neovision_logo.png" alt="LMN School">
+                    <div>
+                        <h3>Secondary Education</h3>
+                        <p>LMN School, 2014 - 2016</p>
+                        <p>Percentage: 93%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category" onclick="toggleSkills('web-development')">
+                    <h3>Web Development</h3>
+                    <div class="skill-set" id="web-development">
+                        <div class="skill">
+                            <p>HTML</p>
+                            <div class="skill-bar" style="width: 90%;"></div>
+                        </div>
+                        <div class="skill">
+                            <p>CSS</p>
+                            <div class="skill-bar" style="width: 85%;"></div>
+                        </div>
+                        <div class="skill">
+                            <p>JavaScript</p>
+                            <div class="skill-bar" style="width: 80%;"></div>
+                        </div>
+                        <div class="skill">
+                            <p>React</p>
+                            <div class="skill-bar" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="skill-category" onclick="toggleSkills('data-analysis')">
+                    <h3>Data Analysis</h3>
+                    <div class="skill-set" id="data-analysis">
+                        <div class="skill">
+                            <p>Python</p>
+                            <div class="skill-bar" style="width: 85%;"></div>
+                        </div>
+                        <div class="skill">
+                            <p>R</p>
+                            <div class="skill-bar" style="width: 70%;"></div>
+                        </div>
+                        <div class="skill">
+                            <p>SQL</p>
+                            <div class="skill-bar" style="width: 90%;"></div>
+                        </div>
+                        <div class="skill">
+                            <p>Excel</p>
+                            <div class="skill-bar" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="skills-container">
+                <div class="skill-category" onclick="toggleSkills('nontechnical')">
+                    <h3>Nontechnical Skills</h3>
+                    <div class="skill-set" id="nontechnical">
+                        <div class="skill">
+                            <p>Communication</p>
+                            <div class="skill-bar" style="width: 85%;"></div>
+                        </div>
+                        <div class="skill">
+                            <p>Teamwork</p>
+                            <div class="skill-bar" style="width: 90%;"></div>
+                        </div>
+                        <div class="skill">
+                            <p>Leadership</p>
+                            <div class="skill-bar" style="width: 75%;"></div>
+                        </div>
+                        <div class="skill">
+                            <p>Time Management</p>
+                            <div class="skill-bar" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="skill-category" onclick="toggleSkills('programming-languages')">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-set" id="programming-languages">
+                        <div class="skill">
+                            <p>Python</p>
+                            <div class="skill-bar" style="width: 90%;"></div>
+                        </div>
+                        <div class="skill">
+                            <p>Java</p>
+                            <div class="skill-bar" style="width: 85%;"></div>
+                        </div>
+                        <div class="skill">
+                            <p>C++</p>
+                            <div class="skill-bar" style="width: 70%;"></div>
+                        </div>
+                        <div class="skill">
+                            <p>JavaScript</p>
+                            <div class="skill-bar" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>                  
+        <section id="projects">
+            <h2>Projects</h2>
+            <p>Here are my amazing projects!</p>
+        </section>
+        <section id="internships">
+            <h2>Internships</h2>
+            <p>Internships here</p>
+        </section>
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="certifications-content">
+                <div class="certification-card">
+                    <a href="https://www.credly.com/badges/6c75cb06-e7cf-4d2c-af74-071dca5f2b09/public_url" target="_blank">
+                        <img src="awscp_logo.png" alt="Certification 1">
+                        <h3>AWS Certified Cloud Practitioner</h3>
+                        <div class="hover-text">
+                            <p>View Certification</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="certification-card">
+                    <a href="https://drive.google.com/file/d/1LIvV9wtX-j88UJaq2f55P5Q4DvKd3bkW/view?usp=sharing" target="_blank">
+                        <img src="linguaskill_logo.png" alt="Certification 2">
+                        <h3>Cambridge Certified LinguaSkills</h3>
+                        <div class="hover-text">
+                            <p>View Certification</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="certification-card">
+                    <a href="https://drive.google.com/file/d/1APCI1yokpNbLbQAewjESK5GwgMip_pV4/view?usp=sharing" target="_blank">
+                        <img src="NPTEL_logos.webp" alt="Certification 3">
+                        <h3>NPTEL - Programming in Java</h3>
+                        <div class="hover-text">
+                            <p>View Certification</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="certification-card">
+                    <a href="https://www.hackerrank.com/certificates/812632c6c28e" target="_blank">
+                        <img src="hackerrank_logos.jpeg" alt="Certification 5">
+                        <h3>Java - Basic Certification</h3>
+                        <div class="hover-text">
+                            <p>View Certification</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="certification-card">
+                    <a href="https://drive.google.com/file/d/1crgX-LUu5eknoM1FDcEgVOkizsZ_WIWf/view?usp=sharing" target="_blank">
+                        <img src="NPTEL_logos.webp" alt="Certification 4">
+                        <h3>NPTEL - Problem Solving through Programming in C</h3>
+                        <div class="hover-text">
+                            <p>View Certification</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="certification-card">
+                    <a href="https://coursera.org/share/ea0fbaab2e237aae43b3f4eca48c6c8e" target="_blank">
+                        <img src="meta_logo.png" alt="Certification 5">
+                        <h3>Coursera - Meta Front-End Developer</h3>
+                        <div class="hover-text">
+                            <p>View Certification</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="certification-card">
+                    <a href="https://www.hackerrank.com/certificates/8ce352c68828" target="_blank">
+                        <img src="hackerrank_logos.jpeg" alt="Certification 5">
+                        <h3>SQL - Basic Certification</h3>
+                        <div class="hover-text">
+                            <p>View Certification</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="full-screen-section">
+            <h2>Contact Me</h2>
+            <div class="contact-content">
+                <div class="contact-card">
+                    <h3>Address</h3>
+                    <p>Bhagavan Towers, Muthayala Reddy Nagar, Andhra Pradesh, Guntur</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <p><a href="mailto:2200031766cseh@gmail.com">2200031766cseh@gmail.com</a></p>
+                    <p><a href="mailto:shanmukhip2005@gmail.com">shanmukhip2005@gmail.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <h3>Social Profiles</h3>
+                    <p>
+                        <a href="https://www.linkedin.com/in/shanmukhipoluri/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><br>
+                        <a href="https://github.com/ShanmukhiPoluri" target="_blank"><i class="fab fa-github"></i> GitHub</a><br>
+                        <a href="https://www.instagram.com/shanmukhi_poluri_/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    </p>
+                </div>
+                <div class="contact-card">
+                    <h3>Contact Number</h3>
+                    <p>+91 7382979249</p>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 P.Shanmukhi Lakshmi Samatha. All rights reserved.</p>
+        </footer>
+
+    </main>
+    <script>
+        function toggleSkills(categoryId) {
+    const skillSets = document.querySelectorAll('.skill-set');
+    skillSets.forEach(skillSet => {
+        if (skillSet.id === categoryId) {
+            skillSet.classList.toggle('active');
+        } else {
+            skillSet.classList.remove('active');
+        }
+    });
+}
+    </script>
+</body>
+</html>

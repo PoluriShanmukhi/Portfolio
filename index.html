@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Professional Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <style>
+   body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #f4f4f4;
+  scroll-behavior: smooth;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: rgba(34, 49, 63, 0.9);
+}
+
+header h1 {
+  font-size: 2.8rem;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  border-right: 2px solid #f4f4f4;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 4s steps(40, end) forwards;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+nav a {
+  color: #f4f4f4;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: 2px solid #f4f4f4;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+  background-color: #f4f4f4;
+  color: #203a43;
+}
+
+section {
+  padding: 3rem 1rem;
+  max-width: 1100px;
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.about-left {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-left h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about-left p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+}
+
+.about-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.glow-border {
+  padding: 10px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #00c4cc, #3a86ff, #8338ec);
+  background-size: 300% 300%;
+  animation: borderGlow 6s ease infinite;
+}
+
+.social-icons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icons a {
+  font-size: 1.8rem;
+  color: #00c4cc;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+}
+
+/* Border Glow Animation */
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Fade In Animation (already used in skills) */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-left, .about-right {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about-image {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  width: 100%; /* Adjust width to fit within the container */
+  justify-items: left; /* Centers the items inside each grid cell */
+}
+
+.skills-grid div {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.skills-grid div:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+.skills-grid i {
+  color: #00c4cc;
+  font-size: 1.3rem;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#projects {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.section-heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.section-heading h2 {
+    font-size: 2.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    color: #f4f4f4;
+    margin: 0;
+}
+
+.section-heading i {
+    font-size: 2rem;
+    color: #00c4cc;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 300px;
+    height: 400px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+    animation: fadeInUp 1s ease forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1);
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.project-content p {
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.about-btn {
+    background-color: #00c4cc;
+    color: white;
+}
+
+.about-btn:hover {
+    background-color: #00a0a0;
+}
+
+.link-btn {
+    background-color: #8338ec;
+    color: white;
+}
+
+.link-btn:hover {
+    background-color: #6c1ae2;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#education {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.section-heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.section-heading h2 {
+    font-size: 2.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    color: #f4f4f4;
+    margin: 0;
+}
+
+.section-heading i {
+    font-size: 2rem;
+    color: #00c4cc;
+}
+
+.education-cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.education-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.education-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.education-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    color: #f4f4f4;
+}
+
+.education-card p {
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin: 0.5rem 0;
+}
+
+.education-card strong {
+    font-weight: bold;
+    color: #00c4cc;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .education-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .education-card {
+        width: 90%;
+        margin-bottom: 1.5rem;
+    }
+}
+
+#articles {
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.section-heading {
+  width: 100%;
+  text-align: center;
+}
+
+.section-heading h2 {
+  font-size: 2.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  color: #f4f4f4;
+}
+
+.section-heading i {
+  font-size: 2rem;
+  color: #00c4cc;
+}
+
+.articles-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.article-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 280px;
+  height: 440px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.article-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.article-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.article-card h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.btn-article {
+  background-color: #00c4cc;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+}
+
+.btn-article:hover {
+  background-color: #3a86ff;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .articles-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+
+#certifications {
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.section-heading {
+  width: 100%;
+  text-align: center;
+}
+
+.section-heading h2 {
+  font-size: 2.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  color: #f4f4f4;
+}
+
+.section-heading i {
+  font-size: 2rem;
+  color: #00c4cc;
+}
+
+.certification-cards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.certification-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 280px;
+  height: 440px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.certification-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.certification-card h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.certification-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.certification-card .buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.certification-card .btn {
+  background-color: #00c4cc;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.certification-card .btn:hover {
+  background-color: #3a86ff;
+}
+
+/* Modal */
+.details-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  color: #333;
+  position: relative;
+  animation: fadeInUp 0.4s ease-in-out;
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal-content h3 {
+  color: #00c4cc;
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  margin: 0.5rem 0;
+}
+
+.close-btn {
+  font-size: 2rem;
+  color: #333;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#contact {
+  padding: 4rem 1rem;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+  color: #fff;
+}
+#contact a{
+  text-decoration: none;
+  color: white;
+}
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Contact Card */
+.contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.contact-item i {
+  color: #00c4cc;
+  font-size: 1.3rem;
+}
+
+/* Form */
+.contact-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.contact-form form input,
+.contact-form form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.75rem 0;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.contact-form form input::placeholder,
+.contact-form form textarea::placeholder {
+  color: #ccc;
+}
+
+.btn-submit {
+  background-color: #00c4cc;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #3a86ff;
+}
+
+#form-status {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+/* Map Styling */
+.map-container {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-card, .contact-form, .map-container {
+    width: 100%;
+  }
+}
+
+
+
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(34, 49, 63, 0.9);
+  color: #f4f4f4;
+  font-size: 1rem;
+  position: relative;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: #00c4cc;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+
+footer .footer-content {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+  </style>
+  
+</head>
+<script>
+    const form = document.querySelector("form");
+    const status = document.getElementById("form-status");
+  
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const action = form.getAttribute("action");
+      const response = await fetch(action, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (response.ok) {
+        status.innerHTML = "✅ Thanks for your message!";
+        status.style.color = "#00ff99";
+        form.reset();
+      } else {
+        status.innerHTML = "❌ Oops! Something went wrong.";
+        status.style.color = "#ff4444";
+      }
+    });
+  </script>
+  
+<body>
+  <header>
+    <h1>Shanmukhi's Portfolio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#articles">Articles</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+
+    </nav>
+  </header>
+
+  <section id="about">
+    <div class="card about-card">
+      <div class="about-left">
+        <h2><i class="fas fa-user"></i> About Me</h2>
+        <p>
+          Hi! I’m currently pursuing a Bachelor of Technology in Computer Science and Engineering, 
+          specializing in Social and Digital Media Analytics. I'm deeply passionate about machine learning, 
+          web development, and building real-world solutions that make an impact. I love exploring tech, 
+          solving problems, and pushing myself to grow constantly 🚀.
+        </p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/shanmukhipoluri" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/PoluriShanmukhi" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="glow-border">
+          <img src="Shannu.jpg" alt="Shanmukhi" class="about-image" />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="education">
+    <div class="section-heading">
+        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+    </div>
+
+    <div class="education-cards">
+        <div class="education-card">
+            <h3><b>High School</b></h3>
+            <p><b>Neo Vision School</b></p>
+            <p><b>Graduation Year:</b> 2020</p>
+            <p><b>Subjects:</b> Telugu, Hindi, English, Mathematics, Physics, Biology, Social</p>
+            <p><strong>Coursework:</strong> Algebra, Trignometry, Physics, History, Geopgraphy etc.</p>
+            <p><b>Score: </b> 586/600</p>
+        </div>
+        
+        <div class="education-card">
+            <h3><b>Intermediate</b></h3>
+            <p><b>Narayana Junior College</b></p>
+            <p><b>Graduation Year: </b> 2022</p>
+            <p><b>Stream: </b>MPC(Mathematics ,Physics and Chemistry)</p>
+            <p><strong>Coursework:</strong> Calculus, Organic & Inorganic Chemistry, Linear Algebra, Differential Equations, Mechanics, Thermodynamics etc.</p>
+            <p><b>Score: </b> 974/1000</p>
+        </div>
+
+        <div class="education-card">
+            <h3><b>Bachelor's Degree</b></h3>
+            <p><b>KL University</b></p>
+            <p><b>Graduation Year: </b> 2026</p>
+            <p><b>Degree: </b> Bachelor of Technology in Computer Science & Engineering</p>
+            <p><strong>Coursework:</strong> Machine Learning, Data Structures, Web Development, Algorithms, Databases, Operating Systems, Social and Digital Media Marketing etc.</p>
+            <p><b>CGPA: </b>9.79</p>
+        </div>
+    </div>
+</section>
+
+  <section id="skills">
+    <div class="card skill-card">
+      <h2><i class="fas fa-tools"></i> My Skills</h2>
+      <div class="skills-grid">
+        <div><i class="fas fa-code"></i> <strong>Programming:</strong> Python, C, Java (OOP)</div>
+        <div><i class="fas fa-globe"></i> <strong>Web Dev:</strong> HTML, CSS, JS, React, Flask, Spring Boot</div>
+        <div><i class="fas fa-database"></i> <strong>Databases:</strong> MySQL, PostgreSQL, SQL</div>
+        <div><i class="fas fa-robot"></i> <strong>ML & AI:</strong> NLP (spaCy, NLTK), Sentiment Analysis</div>
+        <div><i class="fas fa-cloud"></i> <strong>Cloud:</strong> AWS</div>
+        <div><i class="fas fa-layer-group"></i> <strong>DSA:</strong> Data Structures & Algorithms</div>
+        <div><i class="fas fa-chart-bar"></i> <strong>Visualization:</strong> Power BI, Excel, Matplotlib, Seaborn</div>
+        <div><i class="fab fa-git-alt"></i> <strong>Version Control:</strong> Git, GitHub</div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <section id="projects">
+    <div class="section-heading">
+        <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+    </div>
+    <div class="project-card">
+        <img src="resources/weather_app.webp" alt="Project 1" class="project-image" />
+        <div class="project-content">
+            <h3>Weather App Using API</h3>
+            <!-- <p>A brief description of the project goes here.</p> -->
+            <button class="btn about-btn" onclick="openModal('modal1')">About</button>
+            <button class="btn link-btn" onclick="window.open('https://github.com/PoluriShanmukhi/Weather-App', '_blank')">Link</button>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <img src="resources/LMS.jpg" alt="Project 2" class="project-image" />
+        <div class="project-content">
+            <h3>Learning Management System</h3>
+            <!-- <p>A brief description of the project goes here.</p> -->
+            <button class="btn about-btn" onclick="openModal('modal2')">About</button>
+            <button class="btn link-btn" onclick="window.open('https://github.com/PoluriShanmukhi/LearningManagementSystem', '_blank')">Link</button>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <img src="resources/spell_fixer.jpg" alt="Project 3" class="project-image" />
+        <div class="project-content">
+            <h3>Spell Fixer Using TextBlob</h3>
+            <!-- <p>A brief description of the project goes here.</p> -->
+            <button class="btn about-btn" onclick="openModal('modal3')">About</button>
+            <button class="btn link-btn" onclick="window.open('https://github.com/PoluriShanmukhi/SPELL_FIXER', '_blank')">Link</button>
+        </div>
+    </div>
+
+    <div class="project-card">
+      <img src="resources/portfolio.webp" alt="Project 4" class="project-image" />
+      <div class="project-content">
+          <h3>Portfolio</h3>
+          <!-- <p>A brief description of the project goes here.</p> -->
+          <button class="btn about-btn" onclick="openModal('modal4')">About</button>
+          <button class="btn link-btn" onclick="window.open('https://github.com/PoluriShanmukhi/Portfolio', '_blank')">Link</button>
+      </div>
+  </div>
+
+    <!-- Project Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+            <h2>Weather App</h2>
+            <p>Here you can add more information about Project 1...</p>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
+            <h2>LearningManagementSystem</h2>
+            <p>Here you can add more information about Project 2...</p>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
+            <h2>Spell Fixer Using TextBlob</h2>
+            <p>Here you can add more information about Project 2...</p>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+      <div class="modal-content">
+          <span class="close-btn" onclick="closeModal('modal4')">&times;</span>
+          <h2>Portfolio</h2>
+          <p>Here you can add more information about Project 2...</p>
+      </div>
+  </div>
+</section>
+
+<section id="articles">
+    <h2 class="section-title">
+      <i class="fas fa-newspaper"></i>Articles
+    </h2>
+    <div class="articles-container">
+      
+      <div class="article-card">
+        <img src="resources/spring mvc.png" alt="Article 1" />
+        <h3>Spring Web MVC</h3>
+        <p>A sub-framework of Spring that focuses on building web applications using the Model-View-Controller (MVC) architectural pattern. It's a library within the Spring framework that helps simplify handling HTTP requests and responses.</p>
+        <a href="https://www.linkedin.com/pulse/spring-web-mvc-poluri-shanmukhi-lakshmi-samatha-nnzmc" target="_blank" class="btn-article">Read More</a>
+      </div>
+      
+      <div class="article-card">
+        <img src="resources/sentiment analysis.jpeg" alt="Article 2" />
+        <h3>Sentiment Analysis</h3>
+        <p>Sentiment analysis, is the field of study that analyzes people’s opinions, sentiments, evaluations, appraisals, attitudes, and emotions towards entities such as products, services, organizations, individuals, issues, events, topics, and their attributes.</p>
+        <a href="https://www.linkedin.com/pulse/sentiment-analysis-poluri-shanmukhi-lakshmi-samatha-2uy5c" target="_blank" class="btn-article">Read More</a>
+      </div>
+      
+      <div class="article-card">
+        <img src="resources/spring with restAPI.png" alt="Article 3" />
+        <h3>Spring Boot with Rest API</h3>
+        <p>Spring Boot is basically a spring module which aims to simplify the use of spring framework for Java application development.It is used to create both standalone/console and web applications by removing a lot of configuration and dependencies. </p>
+        <a href="https://www.linkedin.com/pulse/spring-boot-rest-api-poluri-shanmukhi-lakshmi-samatha-1kxbc" target="_blank" class="btn-article">Read More</a>
+      </div>
+
+      <div class="article-card">
+        <img src="resources/recommender_systems.png" alt="Article 4" />
+        <h3>Recommender Systems</h3>
+        <p>Recommender Systems are software tools and algorithms designed to present users with relevant items in a very broad sense, for example, products and services, movies, music, books, or even on social media, friends one might want to be friends with.</p>
+        <a href="https://www.linkedin.com/pulse/recommender-systems-poluri-shanmukhi-lakshmi-samatha-4tcgc" target="_blank" class="btn-article">Read More</a>
+      </div>
+      
+      <div class="article-card">
+        <img src="resources/web_scrapping.png" alt="Article 5" />
+        <h3>Web Scraping</h3>
+        <p>Web scraping is the process of extracting data from websites using automated tools. There are multiple ways to perform web scraping, including using libraries like BeautifulSoup, Scrapy, and Selenium. </p>
+        <a href="https://www.linkedin.com/pulse/web-scraping-poluri-shanmukhi-lakshmi-samatha-co9jc" target="_blank" class="btn-article">Read More</a>
+      </div>
+      
+      <div class="article-card">
+        <img src="resources/nlp.jpeg"alt="Article 6" />
+        <h3>Natural Language Processing(NLP)</h3>
+        <p>Natural Language Processing or NLP is a field of artificial intelligence that allows machines to comprehend, process, and generate human language in a meaningful and useful manner.</p>
+        <a href="https://www.linkedin.com/pulse/natural-language-processing-poluri-shanmukhi-lakshmi-samatha-zrcpc" target="_blank" class="btn-article">Read More</a>
+      </div>
+  
+    </div>
+  </section>
+
+
+<section id="certifications">
+    <div class="section-heading">
+      <h2><i class="fas fa-certificate"></i> Certifications</h2>
+    </div>
+  
+    <div class="certification-cards">
+      <!-- Card 1 -->
+      <div class="certification-card">
+        <h3>AWS Certified Cloud Practitioner</h3>
+        <img src="resources/AWS_CP.png" alt="Certificate 1" class="certificate-image">
+        <div class="buttons">
+          <button class="btn details-btn" onclick="openDetails('cert1')">Details</button>
+          <button class="btn link-btn" onclick="window.open('https://www.credly.com/badges/6c75cb06-e7cf-4d2c-af74-071dca5f2b09/public_url')">Link</button>
+        </div>
+      </div>
+  
+      <!-- Modal 1 -->
+      <div id="cert1" class="details-modal">
+        <div class="modal-content">
+          <span class="close-btn" onclick="closeDetails('cert1')">&times;</span>
+          <h3>AWS Certified Cloud Practitioner</h3>
+          <p><strong>Provider:</strong> AWS (Amazon Web Services)</p>
+          <p><strong>Coursework:</strong> Data Manipulation, Data Visualization, Machine Learning Algorithms</p>
+          <p><strong>Outcomes:</strong> Hands-on experience with Python, Pandas, Numpy, and Matplotlib</p>
+        </div>
+      </div>
+  
+      <!-- Card 2 -->
+      <div class="certification-card">
+        <h3>Full Stack Web Development</h3>
+        <img src="path/to/your/certificate2.jpg" alt="Certificate 2" class="certificate-image">
+        <div class="buttons">
+          <button class="btn details-btn" onclick="openDetails('cert2')">Details</button>
+          <button class="btn link-btn" onclick="window.open('https://www.example.com/certificate2')">Link</button>
+        </div>
+      </div>
+  
+      <!-- Modal 2 -->
+      <div id="cert2" class="details-modal">
+        <div class="modal-content">
+          <span class="close-btn" onclick="closeDetails('cert2')">&times;</span>
+          <h3>Full Stack Web Development</h3>
+          <p><strong>Provider:</strong> Udemy</p>
+          <p><strong>Coursework:</strong> HTML, CSS, JavaScript, React, Node.js, Express</p>
+          <p><strong>Outcomes:</strong> Proficiency in front-end and back-end development</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-container">
+      
+      <!-- Contact Info Card -->
+      <div class="contact-card">
+        <h2>Contact Details</h2>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <p>2200031766cseh@gmail.com</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Guntur, Andhra Pradesh, India</p>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/shanmukhipoluri" target="_blank">Linkedin</a>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-github"></i>
+          <a href="https://www.github.com/PoluriShanmukhi" target="_blank">GitHub</a>
+        </div>
+      </div>
+  
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <form action="https://formspree.io/f/myzevgyl" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+        <div id="form-status"></div>
+      </div>
+  
+      <!-- Google Maps Embed -->
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.3152710468663!2d80.43028521472507!3d16.306652188740464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f1bcbe0c1215%3A0x23cf71e0c40900c4!2sGuntur%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1645248507492!5m2!1sen!2sin"
+          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+  
+    
+  
+  
+  <footer>
+    <p> © 2025 Shanmukhi Poluri. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200 });
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+    function openDetails(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+  
+    function closeDetails(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+  </script>
+</body>
+</html>
